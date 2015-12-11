@@ -1,0 +1,41 @@
+Version 3.2 HI-TECH Software Intermediate Code
+"1 pragmas.c
+[p x WDTEN=OFF ]
+"2
+[p x WDTPS=1024 ]
+"3
+[p x DSWDTOSC=INTOSCREF ]
+"4
+[p x DSWDTEN=OFF ]
+"5
+[p x DSWDTPS=M2 ]
+"7
+[p x STVREN=ON ]
+"8
+[p x XINST=OFF ]
+"9
+[p x CP0=OFF ]
+"11
+[p x OSC=INTOSC ]
+"12
+[p x CPUDIV=OSC1 ]
+"14
+[p x FCMEN=OFF ]
+"15
+[p x IESO=OFF ]
+"17
+[p x RTCOSC=INTOSCREF ]
+"18
+[p x DSBOREN=OFF ]
+"20
+[p x IOL1WAY=OFF ]
+"21
+[p x MSSP7B_EN=MSK7 ]
+"22
+[p x WPFP=PAGE_1 ]
+"23
+[p x WPEND=PAGE_0 ]
+"24
+[p x WPCFG=OFF ]
+"25
+[p x WPDIS=OFF ]
