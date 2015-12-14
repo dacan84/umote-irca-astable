@@ -10,9 +10,9 @@ CND_CONF=default
 CND_DISTDIR=dist
 TMPDIR=build/${CND_CONF}/${IMAGE_TYPE}/tmp-packaging
 TMPDIRNAME=tmp-packaging
-OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/umote-co2-d1.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-OUTPUT_BASENAME=umote-co2-d1.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-PACKAGE_TOP_DIR=umote-co2-d1/
+OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/umote-irca-astable.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+OUTPUT_BASENAME=umote-irca-astable.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+PACKAGE_TOP_DIR=umote-irca-astable/
 
 # Functions
 function checkReturnCode
@@ -57,15 +57,15 @@ mkdir -p ${TMPDIR}
 
 # Copy files and create directories and links
 cd "${TOP}"
-makeDirectory ${TMPDIR}/umote-co2-d1/bin
+makeDirectory ${TMPDIR}/umote-irca-astable/bin
 copyFileToTmpDir "${OUTPUT_PATH}" "${TMPDIR}/${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}" 0755
 
 
 # Generate tar file
 cd "${TOP}"
-rm -f ${CND_DISTDIR}/${CND_CONF}/package/umote-co2-d1.tar
+rm -f ${CND_DISTDIR}/${CND_CONF}/package/umote-irca-astable.tar
 cd ${TMPDIR}
-tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/umote-co2-d1.tar *
+tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/umote-irca-astable.tar *
 checkReturnCode
 
 # Cleanup

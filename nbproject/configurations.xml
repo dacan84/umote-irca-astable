@@ -13,6 +13,9 @@
       <logicalFolder name="f3" displayName="co2-d1" projectFiles="true">
         <itemPath>co2-d1/include/co2-d1.h</itemPath>
       </logicalFolder>
+      <logicalFolder name="irca" displayName="irca" projectFiles="true">
+        <itemPath>irca/include/irca.h</itemPath>
+      </logicalFolder>
       <logicalFolder name="f1" displayName="sht" projectFiles="true">
         <itemPath>sht/include/sht.h</itemPath>
       </logicalFolder>
@@ -43,6 +46,9 @@
       </logicalFolder>
       <logicalFolder name="f3" displayName="co2-d1" projectFiles="true">
         <itemPath>co2-d1/co2-d1.c</itemPath>
+      </logicalFolder>
+      <logicalFolder name="irca" displayName="irca" projectFiles="true">
+        <itemPath>irca/irca.c</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="sht" projectFiles="true">
         <itemPath>sht/sht.c</itemPath>
