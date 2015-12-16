@@ -3,7 +3,6 @@
 #include <delays.h>
 
 static void Irca1InitIO(void);
-static void SampleAndHoldInit(void);
 static void SampleAndHoldReset(void);
 
 // Init sensor struct and hw associated
@@ -20,24 +19,21 @@ void IrcaMeasure(IrcAData* data) {
 }
 
 static void Irca1InitIO(void) {
-    IRCA1_SENSE_CNF = 0; // IRCA sense as analog pin
-    IRCA1_SENSE_DDR = 1; // IRCA sense analog in
-    IRCA1_REF_CNF = 0; // IRCA ref as analog pin
-    IRCA1_REF_DDR = 1; // IRCA ref analog in
-    IRCA1_TMP_CNF = 0; // IRCA temperature analog pin
-    IRCA1_TMP_DDR = 1; // IRCA temperature as input
-    IRCA1_HOLD_DDR_DDR = 0; // IRCA sample and hold
-    IRCA1_HOLD = 0; // Initally low
+    IRCA1_SENSE_CNF = 0;    // IRCA sense as analog pin
+    IRCA1_SENSE_DDR = 1;    // IRCA sense analog in
+    IRCA1_REF_CNF = 0;      // IRCA ref as analog pin
+    IRCA1_REF_DDR = 1;      // IRCA ref analog in
+    IRCA1_TMP_CNF = 0;      // IRCA temperature analog pin
+    IRCA1_TMP_DDR = 1;      // IRCA temperature as input
+    IRCA1_HOLD_DDR = 0;     // IRCA sample and hold
+    IRCA1_HOLD = 0;         // Initally low
 }
 
-static void SampleAndHoldInit(void) {
-    //TODo: inicializar pin para el circuito de muestreo y retención
-
-}
-
-static void ResetSampleAndHold(void) {
+static void SampleAndHoldReset(void) {
      IRCA1_HOLD = 1; // Initally low
-    //TODO : INSERTAR DELAY
+     // The sample time that Daniel have in his project is 1KHz The dalay should be around this period.
+     //  delay = 1/1000; = 0.001 i.e. 1us.
+     //__delay_us(1);
      IRCA1_HOLD = 0; // Initally low
 }
 

@@ -25,7 +25,7 @@ void MeasureSensors(void) {
     PowerDownSHT11();
     // IRCA1 sequence
     PowerUpCO2Sensor(); //TODO; esto igual sobra
-    IrcaMeasure(&IrcAData);
+    IrcaMeasure(&ircaData);
     //PowerDownCO2Sensor();
 }
 

@@ -1,5 +1,5 @@
 
-# 1 "sensor_proxy.c"
+# 1 "irca/irca.c"
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -9864,64 +9864,12 @@ typedef uint16_t uintptr_t;
 # 12 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdbool.h"
 typedef unsigned char bool;
 
-# 34 "bsp.h"
+# 34 "irca/include\../../bsp.h"
 void BspInit(void);
 void UnUsedPeriphericalDisable (void);
 void DeepSleep(void);
 
-# 6 "sensor_proxy.h"
-void SensorProxyInit(void);
-
-void MeasureSensors(void);
-
-void EnableCO2Sensor(void);
-
-void StartCO2SensorDelayed(void);
-
-BOOL MustEnableCO2Sensor(void);
-
-BOOL MustToggleLampPulse(void);
-
-void ToggleLampPulse(void);
-
-# 35 "sht/include/sht.h"
-typedef struct {
-
-union {
-uint16_t i;
-} temperature;
-
-union {
-uint16_t i;
-} humidity;
-uint8_t tempChk;
-uint8_t humiChk;
-} ShtData;
-
-
-void Sht11Init(void);
-
-
-uint8_t Sht11Measure(ShtData* data);
-
-# 6 "adc/include/averaged_adc.h"
-void AdcInit(void);
-
-void AdcConvert(uint8_t channel, uint16_t* co2);
-
-# 10 "co2-d1/include/co2-d1.h"
-const uint16_t CO2OFFSET = 52;
-
-typedef struct {
-uint16_t co2ref;
-uint16_t co2sense;
-} Co2D1Data;
-
-void Co2D1Init(void);
-
-void Co2D1Measure(Co2D1Data* data);
-
-# 27 "irca/include/irca.h"
+# 27 "irca/include\irca.h"
 typedef struct {
 uint16_t out;
 uint16_t tmp;
@@ -9936,45 +9884,53 @@ void IrcaDisableLamp(void);
 
 void IrcaEnableLamp(void);
 
-# 8 "sensor_proxy.c"
-static void PowerUpCO2Sensor(void);
-static void PowerDownCO2Sensor(void);
-static void PowerUpSHT11(void);
-static void PowerDownSHT11(void);
+# 6 "irca/../adc/include/averaged_adc.h"
+void AdcInit(void);
 
-ShtData shtData;
-IrcAData ircaData;
+void AdcConvert(uint8_t channel, uint16_t* co2);
 
-void SensorProxyInit(void) {
-Sht11Init();
-IrcaInit();
+# 5 "irca/irca.c"
+static void Irca1InitIO(void);
+static void SampleAndHoldReset(void);
+
+
+void IrcaInit(void) {
+AdcInit();
+Irca1InitIO();
 }
 
-void MeasureSensors(void) {
-
-PowerUpSHT11();
-Sht11Measure(&shtData);
-PowerDownSHT11();
-
-PowerUpCO2Sensor();
-IrcaMeasure(&ircaData);
-
+void IrcaMeasure(IrcAData* data) {
+SampleAndHoldReset();
+AdcConvert(10, &data->out);
+AdcConvert(11, &data->ref);
+AdcConvert(9, &data->tmp);
 }
 
-static void PowerUpCO2Sensor(void) {
-TRISBbits.TRISB2 = 0;
-PORTBbits.RB2 = 1;
+static void Irca1InitIO(void) {
+ANCON1bits.PCFG10 = 0;
+TRISBbits.TRISB1 = 1;
+ANCON1bits.PCFG11 = 0;
+TRISBbits.TRISB1 = 1;
+ANCON1bits.PCFG9 = 0;
+TRISBbits.TRISB3 = 1;
+TRISCbits.TRISC0 = 0;
+LATCbits.LATC0 = 0;
 }
 
-static void PowerDownCO2Sensor(void) {
-PORTBbits.RB2 = 0;
+static void SampleAndHoldReset(void) {
+LATCbits.LATC0 = 1;
+
+
+
+LATCbits.LATC0 = 0;
 }
 
-static void PowerUpSHT11(void) {
-TRISAbits.TRISA5 = 0;
-PORTAbits.RA5 = 1;
+
+
+void IrcaEnableLamp(void) {
+T1CONbits.TMR1ON = 1;
 }
 
-static void PowerDownSHT11(void) {
-PORTAbits.RA5 = 0;
+void IrcaDisableLamp(void) {
+T1CONbits.TMR1ON = 0;
 }

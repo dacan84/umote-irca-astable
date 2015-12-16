@@ -6,8 +6,8 @@ bsp.h  \
 network_proxy.h  \
 xbee/include/digi_api.h  \
 xbee/include/../../bsp.h  \
+irca/include/../../bsp.h  \
+irca/include/irca.h  \
 xbee/include/../../bsp.h  \
-co2-d1/include/../../bsp.h  \
-co2-d1/include/co2-d1.h  \
 xbee/include/payload.h  \
 xbee/include/payload.h 

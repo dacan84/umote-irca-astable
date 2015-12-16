@@ -1,98 +1,100 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"16 network_proxy.c
-[c E7337 0 1 .. ]
-[n E7337 _BOOL FALSE TRUE  ]
-"14908 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f26j50.h
-[s S958 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S958 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
-"14918
-[s S959 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S959 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
-"14928
-[s S960 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S960 . . GIEL GIEH ]
-"14933
-[s S961 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S961 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
-"14943
-[s S962 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S962 . . GIEL GIEH ]
-"14907
-[u S957 `S958 1 `S959 1 `S960 1 `S961 1 `S962 1 ]
-[n S957 . . . . . . ]
-"14949
-[v _INTCONbits `VS957 ~T0 @X0 0 e@4082 ]
-"102 xbee/include/digi_api.h
-[s S1038 `uc 1 `uc -> 2 `i `uc -> 97 `i ]
-[n S1038 AtCommand frameId command value ]
-"113
-[s S1039 `uc 1 `uc -> 8 `i `uc -> 2 `i `uc 1 `uc 1 `uc -> 97 `i ]
-[n S1039 TransmitRequest frameId destinationAddress reserved bcastRadius options payload ]
-"127
-[s S1040 `uc 1 `uc -> 8 `i `uc -> 2 `i `uc 1 `uc 1 `uc -> 2 `i `uc -> 2 `i `uc 1 `uc 1 `uc -> 97 `i ]
-[n S1040 ExplicitAddressing frameId destinationAddress reserved sourceEndpoint destinationEndpoint clusterId profileId bcastRadius options payload ]
-"145
-[s S1041 `uc 1 `uc -> 8 `i `uc -> 2 `i `uc 1 `uc -> 2 `i `uc 1 ]
-[n S1041 RemoteAtCommand frameId destinationAddress reserved options command parameter ]
-"159
-[s S1042 `uc 1 `uc -> 2 `i `uc 1 `uc -> 97 `i ]
-[n S1042 AtCommandResponse frameId command status value ]
-"171
-[s S1043 `uc 1 ]
-[n S1043 ModemStatus status ]
-"180
-[s S1044 `uc 1 `uc -> 2 `i `uc 1 `uc 1 `uc 1 ]
-[n S1044 TransmitStatus frameId reserved retryCount deliveryStatus discoveryStatus ]
-"193
-[s S1045 `uc 1 `uc -> 8 `i `uc -> 2 `i `uc 1 `uc -> 97 `i ]
-[n S1045 ReceivePacket frameId sourceAddress reserved options payload ]
-"206
-[s S1046 `uc 1 `uc -> 8 `i `uc -> 2 `i `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc -> 97 `i ]
-[n S1046 ExplicitRxIndicator frameId sourceAddress reserved sourceEndpoint destinationEndpoint clusterId profileId options payload ]
-"223
-[s S1047 `uc 1 `uc -> 8 `i `uc -> 2 `i `uc -> 2 `i `uc 1 `uc -> 97 `i ]
-[n S1047 RemoteCommandResponse frameId sourceAddress reserved command status value ]
-"239
-[u S1049 `uc -> 100 `i `S1038 1 `S1039 1 `S1040 1 `S1041 1 `S1042 1 `S1043 1 `S1044 1 `S1045 1 `S1046 1 `S1047 1 ]
-[n S1049 . payload atCommand transmitRequest explicitAddressing remoteAtCommand atCommandResponse modemStatus transmitStatus receivePacket explicitRxIndicator remoteCommandResponse ]
-"237
-[s S1048 `uc 1 `S1049 1 `ui 1 `uc 1 `uc 1 `*uc 1 `uc 1 `uc 1 ]
-[n S1048 XBeePacket apiId frame length checksum rxState dataPtr index lastByte ]
-"28 xbee/include\payload.h
-[s S1037 `uc -> 100 `i `uc 1 ]
-[n S1037 Payload data size ]
-[v F8351 `*S1048 ~T0 @X0 1 t ]
-"272 xbee/include/digi_api.h
-[v _XBeeCreatePacket `(v ~T0 @X0 0 ef1`C*S1048 ]
-"34 xbee/include\payload.h
-[v _PayloadInit `(v ~T0 @X0 0 ef1`*S1037 ]
-"37
-[v _PayloadPutByte `(v ~T0 @X0 0 ef2`*S1037`Cuc ]
-"46
-[v _PayloadPutString `(v ~T0 @X0 0 ef2`*S1037`*Cuc ]
-"40
-[v _PayloadPutWord `(v ~T0 @X0 0 ef2`*S1037`Cui ]
-"37 sht/include\sht.h
-[u S1035 `ui 1 ]
-[n S1035 . i ]
-"41
-[u S1036 `ui 1 ]
-[n S1036 . i ]
-"35
-[s S1034 `S1035 1 `S1036 1 `uc 1 `uc 1 ]
-[n S1034 . temperature humidity tempChk humiChk ]
-"13 network_proxy.c
-[v _shtData `S1034 ~T0 @X0 0 e ]
-"27 irca/include/irca.h
-[s S1050 `ui 1 `ui 1 `ui 1 ]
-[n S1050 . out tmp ref ]
-"14 network_proxy.c
-[v _ircAData `S1050 ~T0 @X0 0 e ]
-"288 xbee/include/digi_api.h
-[v _XBeeCreateTransmitRequestPacket `(v ~T0 @X0 0 ef7`*S1048`uc`*uc`uc`uc`*uc`uc ]
-[v F8356 `*S1048 ~T0 @X0 1 t ]
-"280
-[v _XBeeSendPacket `(E7337 ~T0 @X0 0 ef1`C*S1048 ]
+"6 irca/../adc/include/averaged_adc.h
+[v _AdcInit `(v ~T0 @X0 0 ef ]
+"5 irca/irca.c
+[v _Irca1InitIO `(v ~T0 @X0 0 sf ]
+"27 irca/include\irca.h
+[s S1034 `ui 1 `ui 1 `ui 1 ]
+[n S1034 . out tmp ref ]
+"6 irca/irca.c
+[v _SampleAndHoldReset `(v ~T0 @X0 0 sf ]
+"8 irca/../adc/include/averaged_adc.h
+[v _AdcConvert `(v ~T0 @X0 0 ef2`uc`*ui ]
+"2583 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f26j50.h
+[s S185 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S185 . PCFG8 PCFG9 PCFG10 PCFG11 PCFG12 . VBG2EN VBGEN ]
+"2593
+[s S186 :6 `uc 1 :1 `uc 1 ]
+[n S186 . . PCFG14 ]
+"2597
+[s S187 :7 `uc 1 :1 `uc 1 ]
+[n S187 . . PCFG15 ]
+"2582
+[u S184 `S185 1 `S186 1 `S187 1 ]
+[n S184 . . . . ]
+"2602
+[v _ANCON1bits `VS184 ~T0 @X0 0 e@3913 ]
+"6856
+[s S478 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S478 . TRISB0 TRISB1 TRISB2 TRISB3 TRISB4 TRISB5 TRISB6 TRISB7 ]
+"6855
+[u S477 `S478 1 ]
+[n S477 . . ]
+"6867
+[v _TRISBbits `VS477 ~T0 @X0 0 e@3987 ]
+"6917
+[s S480 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S480 . TRISC0 TRISC1 TRISC2 . TRISC4 TRISC5 TRISC6 TRISC7 ]
+"6927
+[s S481 :3 `uc 1 :1 `uc 1 ]
+[n S481 . . TRISC3 ]
+"6916
+[u S479 `S480 1 `S481 1 ]
+[n S479 . . . ]
+"6932
+[v _TRISCbits `VS479 ~T0 @X0 0 e@3988 ]
+"6491
+[s S456 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S456 . LATC0 LATC1 LATC2 . LATC4 LATC5 LATC6 LATC7 ]
+"6501
+[s S457 :1 `uc 1 ]
+[n S457 . LC0 ]
+"6504
+[s S458 :1 `uc 1 :1 `uc 1 ]
+[n S458 . . LC1 ]
+"6508
+[s S459 :2 `uc 1 :1 `uc 1 ]
+[n S459 . . LC2 ]
+"6512
+[s S460 :3 `uc 1 :1 `uc 1 ]
+[n S460 . . LC3 ]
+"6516
+[s S461 :4 `uc 1 :1 `uc 1 ]
+[n S461 . . LC4 ]
+"6520
+[s S462 :5 `uc 1 :1 `uc 1 ]
+[n S462 . . LC5 ]
+"6524
+[s S463 :6 `uc 1 :1 `uc 1 ]
+[n S463 . . LC6 ]
+"6528
+[s S464 :7 `uc 1 :1 `uc 1 ]
+[n S464 . . LC7 ]
+"6490
+[u S455 `S456 1 `S457 1 `S458 1 `S459 1 `S460 1 `S461 1 `S462 1 `S463 1 `S464 1 ]
+[n S455 . . . . . . . . . . ]
+"6533
+[v _LATCbits `VS455 ~T0 @X0 0 e@3979 ]
+"13132
+[s S844 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :2 `uc 1 ]
+[n S844 . TMR1ON RD16 T1SYNC T1OSCEN T1CKPS TMR1CS ]
+"13140
+[s S845 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S845 . . T1CKPS0 T1CKPS1 TMR1CS0 TMR1CS1 ]
+"13147
+[s S846 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S846 . . RD161 T1SYNC1 T1OSCEN1 T1CKPS01 T1CKPS11 TMR1CS01 TMR1CS11 ]
+"13157
+[s S847 :3 `uc 1 :1 `uc 1 ]
+[n S847 . . SOSCEN ]
+"13161
+[s S848 :7 `uc 1 :1 `uc 1 ]
+[n S848 . . T1RD16 ]
+"13131
+[u S843 `S844 1 `S845 1 `S846 1 `S847 1 `S848 1 ]
+[n S843 . . . . . . ]
+"13166
+[v _T1CONbits `VS843 ~T0 @X0 0 e@4045 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f26j50.h: 49: extern volatile unsigned char RPOR0 @ 0xEC6;
@@ -7658,315 +7660,131 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;bsp.h: 34: void BspInit(void);
 [; ;bsp.h: 35: void UnUsedPeriphericalDisable (void);
 [; ;bsp.h: 36: void DeepSleep(void);
-[; ;network_proxy.h: 6: BOOL NetworkAwake(void);
-[; ;network_proxy.h: 8: void ClearNetworkInterrupt(void);
-[; ;network_proxy.h: 10: void SendMeasures(void);
-[; ;include\sht.h: 35: typedef struct {
-[; ;include\sht.h: 37: union {
-[; ;include\sht.h: 38: uint16_t i;
-[; ;include\sht.h: 39: } temperature;
-[; ;include\sht.h: 41: union {
-[; ;include\sht.h: 42: uint16_t i;
-[; ;include\sht.h: 43: } humidity;
-[; ;include\sht.h: 44: uint8_t tempChk;
-[; ;include\sht.h: 45: uint8_t humiChk;
-[; ;include\sht.h: 46: } ShtData;
-[; ;include\sht.h: 49: void Sht11Init(void);
-[; ;include\sht.h: 52: uint8_t Sht11Measure(ShtData* data);
-[; ;include\payload.h: 26: typedef struct Payload Payload;
-[; ;include\payload.h: 28: struct Payload {
-[; ;include\payload.h: 29: uint8_t data[100];
-[; ;include\payload.h: 30: uint8_t size;
-[; ;include\payload.h: 31: };
-[; ;include\payload.h: 34: void PayloadInit(Payload* payload);
-[; ;include\payload.h: 37: void PayloadPutByte(Payload* payload, const uint8_t element);
-[; ;include\payload.h: 40: void PayloadPutWord(Payload* payload, const uint16_t element);
-[; ;include\payload.h: 43: void PayloadAppend(Payload* to, const Payload* from);
-[; ;include\payload.h: 46: void PayloadPutString(Payload* payload, const uint8_t* string);
-[; ;include\payload.h: 49: void PayloadPutRAMString(Payload* payload, const uint8_t* string);
-[; ;digi_api.h: 74: enum XBeePacketFrameType {
-[; ;digi_api.h: 75: AT_COMMAND = 0x08,
-[; ;digi_api.h: 76: AT_COMMAND_QUEUE = 0x09,
-[; ;digi_api.h: 77: TRANSMIT_REQUEST = 0x10,
-[; ;digi_api.h: 78: EXPLICIT_ADDRESSING = 0x11,
-[; ;digi_api.h: 79: REMOTE_AT_COMMAND = 0x17,
-[; ;digi_api.h: 80: AT_COMMAND_RESPONSE = 0x88,
-[; ;digi_api.h: 81: MODEM_STATUS = 0x8A,
-[; ;digi_api.h: 82: TRANSMIT_STATUS = 0x8B,
-[; ;digi_api.h: 83: RECEIVE_PACKET = 0x90,
-[; ;digi_api.h: 84: EXPLICIT_RX_INDICATOR = 0x91,
-[; ;digi_api.h: 85: REMOTE_COMMAND_RESPONSE = 0x97
-[; ;digi_api.h: 86: };
-[; ;digi_api.h: 89: enum XBeePacketRxState {
-[; ;digi_api.h: 90: XBEE_PACKET_RX_START = 0,
-[; ;digi_api.h: 91: XBEE_PACKET_RX_LENGTH_1 = 1,
-[; ;digi_api.h: 92: XBEE_PACKET_RX_LENGTH_2 = 2,
-[; ;digi_api.h: 93: XBEE_PACKET_RX_PAYLOAD = 3,
-[; ;digi_api.h: 94: XBEE_PACKET_RX_CRC = 4
-[; ;digi_api.h: 95: };
-[; ;digi_api.h: 100: typedef struct AtCommand AtCommand;
-[; ;digi_api.h: 102: struct AtCommand {
-[; ;digi_api.h: 103: uint8_t frameId;
-[; ;digi_api.h: 104: uint8_t command[2];
-[; ;digi_api.h: 105: uint8_t value[97];
-[; ;digi_api.h: 106: };
-[; ;digi_api.h: 111: typedef struct TransmitRequest TransmitRequest;
-[; ;digi_api.h: 113: struct TransmitRequest {
-[; ;digi_api.h: 114: uint8_t frameId;
-[; ;digi_api.h: 115: uint8_t destinationAddress[8];
-[; ;digi_api.h: 116: uint8_t reserved[2];
-[; ;digi_api.h: 117: uint8_t bcastRadius;
-[; ;digi_api.h: 118: uint8_t options;
-[; ;digi_api.h: 119: uint8_t payload[97];
-[; ;digi_api.h: 120: };
-[; ;digi_api.h: 125: typedef struct ExplicitAddressing ExplicitAddressing;
-[; ;digi_api.h: 127: struct ExplicitAddressing {
-[; ;digi_api.h: 128: uint8_t frameId;
-[; ;digi_api.h: 129: uint8_t destinationAddress[8];
-[; ;digi_api.h: 130: uint8_t reserved[2];
-[; ;digi_api.h: 131: uint8_t sourceEndpoint;
-[; ;digi_api.h: 132: uint8_t destinationEndpoint;
-[; ;digi_api.h: 133: uint8_t clusterId[2];
-[; ;digi_api.h: 134: uint8_t profileId[2];
-[; ;digi_api.h: 135: uint8_t bcastRadius;
-[; ;digi_api.h: 136: uint8_t options;
-[; ;digi_api.h: 137: uint8_t payload[97];
-[; ;digi_api.h: 138: };
-[; ;digi_api.h: 143: typedef struct RemoteAtCommand RemoteAtCommand;
-[; ;digi_api.h: 145: struct RemoteAtCommand {
-[; ;digi_api.h: 146: uint8_t frameId;
-[; ;digi_api.h: 147: uint8_t destinationAddress[8];
-[; ;digi_api.h: 148: uint8_t reserved[2];
-[; ;digi_api.h: 149: uint8_t options;
-[; ;digi_api.h: 150: uint8_t command[2];
-[; ;digi_api.h: 151: uint8_t parameter;
-[; ;digi_api.h: 152: };
-[; ;digi_api.h: 157: typedef struct AtCommandResponse AtCommandResponse;
-[; ;digi_api.h: 159: struct AtCommandResponse {
-[; ;digi_api.h: 160: uint8_t frameId;
-[; ;digi_api.h: 161: uint8_t command[2];
-[; ;digi_api.h: 162: uint8_t status;
-[; ;digi_api.h: 163: uint8_t value[97];
-[; ;digi_api.h: 164: };
-[; ;digi_api.h: 169: typedef struct ModemStatus ModemStatus;
-[; ;digi_api.h: 171: struct ModemStatus {
-[; ;digi_api.h: 172: uint8_t status;
-[; ;digi_api.h: 173: };
-[; ;digi_api.h: 178: typedef struct TransmitStatus TransmitStatus;
-[; ;digi_api.h: 180: struct TransmitStatus {
-[; ;digi_api.h: 181: uint8_t frameId;
-[; ;digi_api.h: 182: uint8_t reserved[2];
-[; ;digi_api.h: 183: uint8_t retryCount;
-[; ;digi_api.h: 184: uint8_t deliveryStatus;
-[; ;digi_api.h: 185: uint8_t discoveryStatus;
-[; ;digi_api.h: 186: };
-[; ;digi_api.h: 191: typedef struct ReceivePacket ReceivePacket;
-[; ;digi_api.h: 193: struct ReceivePacket {
-[; ;digi_api.h: 194: uint8_t frameId;
-[; ;digi_api.h: 195: uint8_t sourceAddress[8];
-[; ;digi_api.h: 196: uint8_t reserved[2];
-[; ;digi_api.h: 197: uint8_t options;
-[; ;digi_api.h: 198: uint8_t payload[97];
-[; ;digi_api.h: 199: };
-[; ;digi_api.h: 204: typedef struct ExplicitRxIndicator ExplicitRxIndicator;
-[; ;digi_api.h: 206: struct ExplicitRxIndicator {
-[; ;digi_api.h: 207: uint8_t frameId;
-[; ;digi_api.h: 208: uint8_t sourceAddress[8];
-[; ;digi_api.h: 209: uint8_t reserved[2];
-[; ;digi_api.h: 210: uint8_t sourceEndpoint;
-[; ;digi_api.h: 211: uint8_t destinationEndpoint;
-[; ;digi_api.h: 212: uint8_t clusterId;
-[; ;digi_api.h: 213: uint8_t profileId;
-[; ;digi_api.h: 214: uint8_t options;
-[; ;digi_api.h: 215: uint8_t payload[97];
-[; ;digi_api.h: 216: };
-[; ;digi_api.h: 221: typedef struct RemoteCommandResponse RemoteCommandResponse;
-[; ;digi_api.h: 223: struct RemoteCommandResponse {
-[; ;digi_api.h: 224: uint8_t frameId;
-[; ;digi_api.h: 225: uint8_t sourceAddress[8];
-[; ;digi_api.h: 226: uint8_t reserved[2];
-[; ;digi_api.h: 227: uint8_t command[2];
-[; ;digi_api.h: 228: uint8_t status;
-[; ;digi_api.h: 229: uint8_t value[97];
-[; ;digi_api.h: 230: };
-[; ;digi_api.h: 235: typedef struct XBeePacket XBeePacket;
-[; ;digi_api.h: 237: struct XBeePacket {
-[; ;digi_api.h: 238: uint8_t apiId;
-[; ;digi_api.h: 239: union {
-[; ;digi_api.h: 240: uint8_t payload[100];
-[; ;digi_api.h: 241: AtCommand atCommand;
-[; ;digi_api.h: 242: TransmitRequest transmitRequest;
-[; ;digi_api.h: 243: ExplicitAddressing explicitAddressing;
-[; ;digi_api.h: 244: RemoteAtCommand remoteAtCommand;
-[; ;digi_api.h: 245: AtCommandResponse atCommandResponse;
-[; ;digi_api.h: 246: ModemStatus modemStatus;
-[; ;digi_api.h: 247: TransmitStatus transmitStatus;
-[; ;digi_api.h: 248: ReceivePacket receivePacket;
-[; ;digi_api.h: 249: ExplicitRxIndicator explicitRxIndicator;
-[; ;digi_api.h: 250: RemoteCommandResponse remoteCommandResponse;
-[; ;digi_api.h: 251: }frame;
-[; ;digi_api.h: 252: uint16_t length;
-[; ;digi_api.h: 253: uint8_t checksum;
-[; ;digi_api.h: 254: uint8_t rxState;
-[; ;digi_api.h: 255: uint8_t *dataPtr;
-[; ;digi_api.h: 256: uint8_t index;
-[; ;digi_api.h: 257: uint8_t lastByte;
-[; ;digi_api.h: 258: };
-[; ;digi_api.h: 263: void XBeeInit(void);
-[; ;digi_api.h: 265: void XBeeJoin(void);
-[; ;digi_api.h: 267: void XBeeReset(void);
-[; ;digi_api.h: 272: void XBeeCreatePacket(XBeePacket * const packet);
-[; ;digi_api.h: 274: uint8_t XBeeEscape(uint8_t value);
-[; ;digi_api.h: 280: BOOL XBeeSendPacket(XBeePacket * const packet);
-[; ;digi_api.h: 282: void XBeeCreateCompleteATCommandPacket(XBeePacket* packet, uint8_t frameId,
-[; ;digi_api.h: 283: uint8_t* command,uint8_t* params, uint8_t paramsLength);
-[; ;digi_api.h: 285: void XBeeCreateATCommandPacket(XBeePacket* packet, uint8_t frameId,
-[; ;digi_api.h: 286: uint8_t* command);
-[; ;digi_api.h: 288: void XBeeCreateTransmitRequestPacket(XBeePacket* packet, uint8_t frameId,
-[; ;digi_api.h: 289: uint8_t* destinationAddress, uint8_t radius, uint8_t options,
-[; ;digi_api.h: 290: uint8_t* payload, uint8_t dataLength);
-[; ;digi_api.h: 292: void XBeeCreateExplicitAddressingPacket(XBeePacket* packet, uint8_t frameId,
-[; ;digi_api.h: 293: uint8_t* destinationAddress, uint8_t sourceEndpoint,
-[; ;digi_api.h: 294: uint8_t destinationEndpoint, uint8_t* clusterId, uint8_t* profileId,
-[; ;digi_api.h: 295: uint8_t radius, uint8_t options,uint8_t* payload, uint8_t dataLength);
-[; ;digi_api.h: 297: void XBeeCreateRemoteAtCommandPacket(XBeePacket* packet, uint8_t frameId,
-[; ;digi_api.h: 298: uint8_t* command, uint8_t param, uint8_t* destinationAddress,
-[; ;digi_api.h: 299: uint8_t options);
-[; ;digi_api.h: 305: BOOL XBee_readPacket(XBeePacket * const packet);
-[; ;digi_api.h: 307: BOOL XBee_readAtCommandResponsePacket(XBeePacket* packet, uint8_t* frameId,
-[; ;digi_api.h: 308: uint8_t** command, uint8_t* status, uint8_t* value);
-[; ;digi_api.h: 310: BOOL XBee_readModemStatusPacket(XBeePacket* packet, uint8_t* status);
-[; ;digi_api.h: 312: BOOL XBee_readTransmitStatusPacket(XBeePacket* packet, uint8_t* frameId,
-[; ;digi_api.h: 313: uint8_t* retryCount, uint8_t* deliveryStatus, uint8_t* discoveryStatus);
-[; ;digi_api.h: 315: BOOL XBee_readReceivePacket(XBeePacket* packet, uint8_t* frameId,
-[; ;digi_api.h: 316: uint8_t** sourceAddress, uint8_t* options, uint8_t** payload,
-[; ;digi_api.h: 317: uint8_t* length);
-[; ;digi_api.h: 319: BOOL XBee_readRemoteCommandResponsePacket(XBeePacket* packet,uint8_t* frameId,
-[; ;digi_api.h: 320: uint8_t** sourceAddress,uint8_t** command, uint8_t* status, uint8_t* value);
-[; ;irca.h: 27: typedef struct {
-[; ;irca.h: 28: uint16_t out;
-[; ;irca.h: 29: uint16_t tmp;
-[; ;irca.h: 30: uint16_t ref;
-[; ;irca.h: 31: } IrcAData;
-[; ;irca.h: 33: void IrcaInit(void);
-[; ;irca.h: 35: void IrcaMeasure(IrcAData* data);
-[; ;irca.h: 37: void IrcaDisableLamp(void);
-[; ;irca.h: 39: void IrcaEnableLamp(void);
-"7 network_proxy.c
-[v _COORDINATOR_ADDRESS `Cuc ~T0 @X0 -> 8 `i e ]
-[i _COORDINATOR_ADDRESS
-:U ..
--> -> 0 `i `uc
--> -> 19 `i `uc
--> -> 162 `i `uc
--> -> 0 `i `uc
--> -> 64 `i `uc
--> -> 72 `i `uc
--> -> 148 `i `uc
--> -> 148 `i `uc
-..
-]
-[; ;network_proxy.c: 7: const uint8_t COORDINATOR_ADDRESS[8] = {0x00, 0x13, 0xA2, 0x00, 0x40, 0x48, 0x94, 0x94};
-"9
-[v _SENSORS `Cuc ~T0 @X0 -> 2 `i e ]
-[i _SENSORS
-:U ..
--> -> 83 `ui `uc
--> -> 73 `ui `uc
-..
-]
-[; ;network_proxy.c: 9: const uint8_t SENSORS[2] = {'S', 'I'};
+[; ;include\irca.h: 27: typedef struct {
+[; ;include\irca.h: 28: uint16_t out;
+[; ;include\irca.h: 29: uint16_t tmp;
+[; ;include\irca.h: 30: uint16_t ref;
+[; ;include\irca.h: 31: } IrcAData;
+[; ;include\irca.h: 33: void IrcaInit(void);
+[; ;include\irca.h: 35: void IrcaMeasure(IrcAData* data);
+[; ;include\irca.h: 37: void IrcaDisableLamp(void);
+[; ;include\irca.h: 39: void IrcaEnableLamp(void);
+[; ;averaged_adc.h: 6: void AdcInit(void);
+[; ;averaged_adc.h: 8: void AdcConvert(uint8_t channel, uint16_t* co2);
+[; ;irca.c: 5: static void Irca1InitIO(void);
+[; ;irca.c: 6: static void SampleAndHoldReset(void);
+"9 irca/irca.c
+[v _IrcaInit `(v ~T0 @X0 1 ef ]
+{
+[; ;irca.c: 9: void IrcaInit(void) {
+[e :U _IrcaInit ]
+[f ]
+[; ;irca.c: 10: AdcInit();
 "10
-[v _BROADCAST_RADIUS `Cuc ~T0 @X0 1 e ]
-[i _BROADCAST_RADIUS
--> -> 0 `i `uc
-]
-[; ;network_proxy.c: 10: const uint8_t BROADCAST_RADIUS = 0x00;
+[e ( _AdcInit ..  ]
+[; ;irca.c: 11: Irca1InitIO();
 "11
-[v _TRANSMIT_OPTIONS `Cuc ~T0 @X0 1 e ]
-[i _TRANSMIT_OPTIONS
--> -> 0 `i `uc
-]
-[; ;network_proxy.c: 11: const uint8_t TRANSMIT_OPTIONS = 0x00;
-[; ;network_proxy.c: 13: extern ShtData shtData;
-[; ;network_proxy.c: 14: extern IrcAData ircAData;
+[e ( _Irca1InitIO ..  ]
+[; ;irca.c: 12: }
+"12
+[e :UE 1035 ]
+}
+"14
+[v _IrcaMeasure `(v ~T0 @X0 1 ef1`*S1034 ]
+{
+[; ;irca.c: 14: void IrcaMeasure(IrcAData* data) {
+[e :U _IrcaMeasure ]
+[v _data `*S1034 ~T0 @X0 1 r1 ]
+[f ]
+[; ;irca.c: 15: SampleAndHoldReset();
+"15
+[e ( _SampleAndHoldReset ..  ]
+[; ;irca.c: 16: AdcConvert(10, &data->out);
 "16
-[v _NetworkAwake `(E7337 ~T0 @X0 1 ef ]
-{
-[; ;network_proxy.c: 16: BOOL NetworkAwake(void) {
-[e :U _NetworkAwake ]
-[f ]
-[; ;network_proxy.c: 17: return INTCONbits.INT0IF && INTCONbits.INT0IE;
+[e ( _AdcConvert (2 , -> -> 10 `i `uc &U . *U _data 0 ]
+[; ;irca.c: 17: AdcConvert(11, &data->ref);
 "17
-[e ) -> -> && != -> . . _INTCONbits 0 1 `i -> -> -> 0 `i `Vuc `i != -> . . _INTCONbits 0 4 `i -> -> -> 0 `i `Vuc `i `i `E7337 ]
-[e $UE 1051  ]
-[; ;network_proxy.c: 18: }
+[e ( _AdcConvert (2 , -> -> 11 `i `uc &U . *U _data 2 ]
+[; ;irca.c: 18: AdcConvert(9, &data->tmp);
 "18
-[e :UE 1051 ]
+[e ( _AdcConvert (2 , -> -> 9 `i `uc &U . *U _data 1 ]
+[; ;irca.c: 19: }
+"19
+[e :UE 1036 ]
 }
-"20
-[v _ClearNetworkInterrupt `(v ~T0 @X0 1 ef ]
-{
-[; ;network_proxy.c: 20: void ClearNetworkInterrupt(void) {
-[e :U _ClearNetworkInterrupt ]
-[f ]
-[; ;network_proxy.c: 21: INTCONbits.INT0IF = 0;
 "21
-[e = . . _INTCONbits 0 1 -> -> 0 `i `uc ]
-[; ;network_proxy.c: 22: }
-"22
-[e :UE 1052 ]
-}
-"24
-[v _SendMeasures `(v ~T0 @X0 1 ef ]
+[v _Irca1InitIO `(v ~T0 @X0 1 sf ]
 {
-[; ;network_proxy.c: 24: void SendMeasures(void) {
-[e :U _SendMeasures ]
+[; ;irca.c: 21: static void Irca1InitIO(void) {
+[e :U _Irca1InitIO ]
 [f ]
+[; ;irca.c: 22: ANCON1bits.PCFG10 = 0;
+"22
+[e = . . _ANCON1bits 0 2 -> -> 0 `i `uc ]
+[; ;irca.c: 23: TRISBbits.TRISB1 = 1;
+"23
+[e = . . _TRISBbits 0 1 -> -> 1 `i `uc ]
+[; ;irca.c: 24: ANCON1bits.PCFG11 = 0;
+"24
+[e = . . _ANCON1bits 0 3 -> -> 0 `i `uc ]
+[; ;irca.c: 25: TRISBbits.TRISB1 = 1;
 "25
-[v _packet `S1048 ~T0 @X0 1 a ]
+[e = . . _TRISBbits 0 1 -> -> 1 `i `uc ]
+[; ;irca.c: 26: ANCON1bits.PCFG9 = 0;
 "26
-[v _payload `S1037 ~T0 @X0 1 a ]
-[; ;network_proxy.c: 25: XBeePacket packet;
-[; ;network_proxy.c: 26: Payload payload;
-[; ;network_proxy.c: 27: XBeeCreatePacket(&packet);
+[e = . . _ANCON1bits 0 1 -> -> 0 `i `uc ]
+[; ;irca.c: 27: TRISBbits.TRISB3 = 1;
 "27
-[e ( _XBeeCreatePacket (1 -> &U _packet `C*S1048 ]
-[; ;network_proxy.c: 28: PayloadInit(&payload);
+[e = . . _TRISBbits 0 3 -> -> 1 `i `uc ]
+[; ;irca.c: 28: TRISCbits.TRISC0 = 0;
 "28
-[e ( _PayloadInit (1 &U _payload ]
-[; ;network_proxy.c: 29: PayloadPutByte(&payload, 1);
+[e = . . _TRISCbits 0 0 -> -> 0 `i `uc ]
+[; ;irca.c: 29: LATCbits.LATC0 = 0;
 "29
-[e ( _PayloadPutByte (2 , &U _payload -> -> 1 `i `uc ]
-[; ;network_proxy.c: 30: PayloadPutByte(&payload, sizeof(SENSORS));
+[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
+[; ;irca.c: 30: }
 "30
-[e ( _PayloadPutByte (2 , &U _payload -> -> # _SENSORS `ui `uc ]
-[; ;network_proxy.c: 31: PayloadPutString(&payload, SENSORS);
-"31
-[e ( _PayloadPutString (2 , &U _payload &U _SENSORS ]
-[; ;network_proxy.c: 32: PayloadPutWord(&payload, shtData.temperature.i);
+[e :UE 1037 ]
+}
 "32
-[e ( _PayloadPutWord (2 , &U _payload . . _shtData 0 0 ]
-[; ;network_proxy.c: 33: PayloadPutWord(&payload, shtData.humidity.i);
+[v _SampleAndHoldReset `(v ~T0 @X0 1 sf ]
+{
+[; ;irca.c: 32: static void SampleAndHoldReset(void) {
+[e :U _SampleAndHoldReset ]
+[f ]
+[; ;irca.c: 33: LATCbits.LATC0 = 1;
 "33
-[e ( _PayloadPutWord (2 , &U _payload . . _shtData 1 0 ]
-[; ;network_proxy.c: 34: PayloadPutWord(&payload, ircAData.out);
-"34
-[e ( _PayloadPutWord (2 , &U _payload . _ircAData 0 ]
-[; ;network_proxy.c: 35: PayloadPutWord(&payload, ircAData.ref);
-"35
-[e ( _PayloadPutWord (2 , &U _payload . _ircAData 2 ]
-[; ;network_proxy.c: 36: PayloadPutWord(&payload, ircAData.tmp);
-"36
-[e ( _PayloadPutWord (2 , &U _payload . _ircAData 1 ]
-[; ;network_proxy.c: 37: XBeeCreateTransmitRequestPacket(&packet, 0x06, (uint8_t*) COORDINATOR_ADDRESS,
-[; ;network_proxy.c: 38: BROADCAST_RADIUS, TRANSMIT_OPTIONS, payload.data, payload.size);
+[e = . . _LATCbits 0 0 -> -> 1 `i `uc ]
+[; ;irca.c: 37: LATCbits.LATC0 = 0;
+"37
+[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
+[; ;irca.c: 38: }
 "38
-[e ( _XBeeCreateTransmitRequestPacket (4 , , , , , , &U _packet -> -> 6 `i `uc -> &U _COORDINATOR_ADDRESS `*uc _BROADCAST_RADIUS _TRANSMIT_OPTIONS &U . _payload 0 . _payload 1 ]
-[; ;network_proxy.c: 39: XBeeSendPacket(&packet);
-"39
-[e ( _XBeeSendPacket (1 -> &U _packet `C*S1048 ]
-[; ;network_proxy.c: 40: }
-"40
-[e :UE 1053 ]
+[e :UE 1038 ]
+}
+"42
+[v _IrcaEnableLamp `(v ~T0 @X0 1 ef ]
+{
+[; ;irca.c: 42: void IrcaEnableLamp(void) {
+[e :U _IrcaEnableLamp ]
+[f ]
+[; ;irca.c: 43: T1CONbits.TMR1ON = 1;
+"43
+[e = . . _T1CONbits 0 0 -> -> 1 `i `uc ]
+[; ;irca.c: 44: }
+"44
+[e :UE 1039 ]
+}
+"46
+[v _IrcaDisableLamp `(v ~T0 @X0 1 ef ]
+{
+[; ;irca.c: 46: void IrcaDisableLamp(void) {
+[e :U _IrcaDisableLamp ]
+[f ]
+[; ;irca.c: 47: T1CONbits.TMR1ON = 0;
+"47
+[e = . . _T1CONbits 0 0 -> -> 0 `i `uc ]
+[; ;irca.c: 48: }
+"48
+[e :UE 1040 ]
 }

@@ -10210,7 +10210,7 @@ int main() {
 BspInit();
 ClearInterrupts();
 DisableInterrupts();
-EnableDeepSleepInterrupt();
+EnableDeelSleepInterrupt();
 
 XBeeInit();
 

@@ -33,7 +33,7 @@ void SendMeasures(void) {
     PayloadPutWord(&payload, shtData.humidity.i);
     PayloadPutWord(&payload, ircAData.out);
     PayloadPutWord(&payload, ircAData.ref);
-    PayloadPutWord(&payload, ircAData.temp);
+    PayloadPutWord(&payload, ircAData.tmp);
     XBeeCreateTransmitRequestPacket(&packet, 0x06, (uint8_t*) COORDINATOR_ADDRESS,
             BROADCAST_RADIUS, TRANSMIT_OPTIONS, payload.data, payload.size);
     XBeeSendPacket(&packet);

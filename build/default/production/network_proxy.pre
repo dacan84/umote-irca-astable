@@ -10165,27 +10165,30 @@ uint8_t* length);
 BOOL XBee_readRemoteCommandResponsePacket(XBeePacket* packet,uint8_t* frameId,
 uint8_t** sourceAddress,uint8_t** command, uint8_t* status, uint8_t* value);
 
-# 10 "co2-d1/include\co2-d1.h"
-const uint16_t CO2OFFSET = 52;
-
+# 27 "irca/include/irca.h"
 typedef struct {
-uint16_t co2ref;
-uint16_t co2sense;
-} Co2D1Data;
+uint16_t out;
+uint16_t tmp;
+uint16_t ref;
+} IrcAData;
 
-void Co2D1Init(void);
+void IrcaInit(void);
 
-void Co2D1Measure(Co2D1Data* data);
+void IrcaMeasure(IrcAData* data);
+
+void IrcaDisableLamp(void);
+
+void IrcaEnableLamp(void);
 
 # 7 "network_proxy.c"
 const uint8_t COORDINATOR_ADDRESS[8] = {0x00, 0x13, 0xA2, 0x00, 0x40, 0x48, 0x94, 0x94};
 
-const uint8_t SENSORS[2] = {'S', 'C'};
+const uint8_t SENSORS[2] = {'S', 'I'};
 const uint8_t BROADCAST_RADIUS = 0x00;
 const uint8_t TRANSMIT_OPTIONS = 0x00;
 
 extern ShtData shtData;
-extern Co2D1Data co2d1Data;
+extern IrcAData ircAData;
 
 BOOL NetworkAwake(void) {
 return INTCONbits.INT0IF && INTCONbits.INT0IE;
@@ -10205,10 +10208,9 @@ PayloadPutByte(&payload, sizeof(SENSORS));
 PayloadPutString(&payload, SENSORS);
 PayloadPutWord(&payload, shtData.temperature.i);
 PayloadPutWord(&payload, shtData.humidity.i);
-PayloadPutWord(&payload, co2d1Data.co2sense);
-PayloadPutWord(&payload, co2d1Data.co2ref);
-PayloadPutWord(&payload, shtData.temperature.i);
-PayloadPutWord(&payload, CO2OFFSET);
+PayloadPutWord(&payload, ircAData.out);
+PayloadPutWord(&payload, ircAData.ref);
+PayloadPutWord(&payload, ircAData.tmp);
 XBeeCreateTransmitRequestPacket(&packet, 0x06, (uint8_t*) COORDINATOR_ADDRESS,
 BROADCAST_RADIUS, TRANSMIT_OPTIONS, payload.data, payload.size);
 XBeeSendPacket(&packet);

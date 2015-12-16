@@ -120,7 +120,7 @@
         <property key="asmlist" value="true"/>
         <property key="define-macros" value=""/>
         <property key="extra-include-directories"
-                  value="sht\include;adc\include;xbee\include;co2-d1\include;clock\include"/>
+                  value="co2-d1\include;irca\include;clock\include;xbee\include;sht\include;adc\include"/>
         <property key="identifier-length" value="255"/>
         <property key="operation-mode" value="free"/>
         <property key="opt-xc8-compiler-strict_ansi" value="false"/>

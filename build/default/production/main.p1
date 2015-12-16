@@ -6,8 +6,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _ClearInterrupts `(v ~T0 @X0 0 ef ]
 "6
 [v _DisableInterrupts `(v ~T0 @X0 0 ef ]
-"19 main.c
-[v _EnableDeepSleepInterrupt `(i ~T0 @X0 0 ef ]
+"7
+[v _EnableDeelSleepInterrupt `(v ~T0 @X0 0 ef ]
 "263 xbee/include\xbee/../digi_api.h
 [v _XBeeInit `(v ~T0 @X0 0 ef ]
 "6 sensor_proxy.h
@@ -7841,9 +7841,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 18: DisableInterrupts();
 "18
 [e ( _DisableInterrupts ..  ]
-[; ;main.c: 19: EnableDeepSleepInterrupt();
+[; ;main.c: 19: EnableDeelSleepInterrupt();
 "19
-[e ( _EnableDeepSleepInterrupt ..  ]
+[e ( _EnableDeelSleepInterrupt ..  ]
 [; ;main.c: 21: XBeeInit();
 "21
 [e ( _XBeeInit ..  ]
