@@ -7,7 +7,7 @@ static void SampleAndHoldReset(void);
 
 // Init sensor struct and hw associated
 void IrcaInit(void) {
-    AdcInit(); //TODO: mirar si tengo que sacar esta función de aquí.
+    AdcInit(); 
     Irca1InitIO();
 }
 

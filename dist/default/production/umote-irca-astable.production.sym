@@ -4,8 +4,9 @@ sprintf@f 3 0 COMRAM 1
 __end_of_XBeeInterruptInit 1BD2 0 CODE 0
 _PayloadPutWord 143E 0 CODE 0
 PayloadPutWord@msb 7 0 COMRAM 1
-__S0 1C10 0 ABS 0
+__S0 10000 0 ABS 0
 __S1 1E2 0 ABS 0
+__S2 0 0 ABS 0
 __Hintentry 0 0 ABS 0
 __Lintentry 0 0 ABS 0
 __size_of_OnWakeUp 0 0 ABS 0
@@ -28,7 +29,7 @@ _AdcCalibrate 1B72 0 CODE 0
 _Sht11Read 1694 0 CODE 0
 __end_of_AdcConvert 1542 0 CODE 0
 _XBeeSerialSend 1B80 0 CODE 0
-_ircAData 0 0 ABS 0
+_ircAData 12 0 COMRAM 1
 _AdcReadValue 1B52 0 CODE 0
 __size_of_AdcReadValue 0 0 ABS 0
 _main 1332 0 CODE 0
@@ -36,7 +37,6 @@ ___sp 0 0 STACK 2
 __end_of_AdcCalibrate 1B80 0 CODE 0
 start 0 0 CODE 0
 _SendMeasures F10 0 CODE 0
-_ircaData 12 0 COMRAM 1
 _ClearMclrFlags 1BB2 0 CODE 0
 __size_of_Sht11Read 0 0 ABS 0
 __end_of_TRANSMIT_OPTIONS F05 0 SMALLCONST 0
@@ -51,15 +51,15 @@ __LRAM 1 0 ABS 0
 _OnWakeUp 1B0A 0 CODE 0
 _ADRES FC3 0 ABS 0
 __end_of_SampleAndHoldReset 1C02 0 CODE 0
-__Hconfig 0 0 CONFIG 0
-__Lconfig 0 0 CONFIG 0
+__Hconfig 10000 0 CONFIG 0
+__Lconfig FFF8 0 CONFIG 0
 _MeasureSensors 1A1C 0 CODE 0
 __size_of_XBeeSetSleepMode 0 0 ABS 0
-__end_of_ClearNetworkInterrupt 1C10 0 CODE 0
+__end_of_ClearNetworkInterrupt 1C16 0 CODE 0
 __Hbigram 0 0 ABS 0
 __Lbigram 0 0 ABS 0
-__Hrparam 0 0 ABS 0
-__Lrparam 0 0 ABS 0
+__Hrparam 0 0 COMRAM 1
+__Lrparam 0 0 COMRAM 1
 _XBeeJoin 1A60 0 CODE 0
 Sht11Write@i 4 0 COMRAM 1
 __size_of_Sht11MeasureParam 0 0 ABS 0
@@ -152,14 +152,14 @@ __end_of_memset 1A1C 0 CODE 0
 XBeeSerialSend@value 1 0 COMRAM 1
 __size_of_ClearInterrupts 0 0 ABS 0
 Sht11Read@ack 2 0 COMRAM 1
-_ClearNetworkInterrupt 1C0C 0 CODE 0
+_ClearNetworkInterrupt 1C12 0 CODE 0
 IrcaMeasure@data E 0 COMRAM 1
 _PowerDeepSleep 19BE 0 CODE 0
 _Irca1InitIO 1AB2 0 CODE 0
 __Hdata 0 0 ABS 0
 __Ldata 0 0 ABS 0
 __end_of_XBeeCreateCompleteATCommandPacket 1284 0 CODE 0
-stackhi 0 0 ABS 0
+stackhi EBF 0 ABS 0
 sprintf@sp 1 0 COMRAM 1
 __end_of_ClearMclrFlags 1BBE 0 CODE 0
 _OnMclr 1B62 0 CODE 0
@@ -167,7 +167,7 @@ _strlen 18AA 0 CODE 0
 _Sht11Init 1AF8 0 CODE 0
 __Htemp 0 0 COMRAM 1
 __Ltemp 0 0 COMRAM 1
-stacklo 0 0 ABS 0
+stacklo 1E2 0 ABS 0
 __Hrbit 0 0 COMRAM 1
 __Lrbit 0 0 COMRAM 1
 __end_of_AdcInit 1A60 0 CODE 0
@@ -182,7 +182,7 @@ __end_of_main 13B8 0 CODE 0
 __Lrbss 0 0 COMRAM 1
 _OnDsWdtWakeUp 1B2E 0 CODE 0
 __size_of_SensorProxyInit 0 0 ABS 0
-__end_of_DisableInterrupts 1C08 0 CODE 0
+__end_of_DisableInterrupts 1C0E 0 CODE 0
 __size_of_ClearNetworkInterrupt 0 0 ABS 0
 __Htext 0 0 ABS 0
 __Ltext 0 0 ABS 0
@@ -292,6 +292,7 @@ __pcstackBANK1 100 0 BANK1 1
 __Hclrtext 0 0 ABS 0
 __Lclrtext 0 0 ABS 0
 PayloadInit@i 3 0 COMRAM 1
+__size_of_EnableDeepSleepInterrupt 0 0 ABS 0
 _DSWAKEHbits F4B 0 ABS 0
 __CFG_DSWDTOSC$INTOSCREF 0 0 ABS 0
 __size_of_UnUsedPeriphericalDisable 0 0 ABS 0
@@ -334,13 +335,14 @@ __Hidloc 0 0 IDLOC 0
 __Lidloc 0 0 IDLOC 0
 __Hstack 0 0 STACK 2
 __Lstack 0 0 STACK 2
-__Hparam 0 0 ABS 0
-__Lparam 0 0 ABS 0
-__Hspace_0 F800 0 ABS 0
+__Hparam 0 0 COMRAM 1
+__Lparam 0 0 COMRAM 1
+__Hspace_0 10000 0 ABS 0
 __HcstackCOMRAM 0 0 ABS 0
 __Lspace_0 0 0 ABS 0
 __LcstackCOMRAM 0 0 ABS 0
 __CFG_OSC$INTOSC 0 0 ABS 0
+__end_of_EnableDeepSleepInterrupt 1C08 0 CODE 0
 __pcstackCOMRAM 1 0 COMRAM 1
 _sprintf 1542 0 CODE 0
 __Hspace_1 1E2 0 ABS 0
@@ -373,7 +375,7 @@ __Lconst 0 0 CODE 0
 __end_of_XBeeJoin 1A7E 0 CODE 0
 __end_of_Sht11Init 1B0A 0 CODE 0
 __CFG_WPEND$PAGE_0 0 0 ABS 0
-__end_of_PowerDownSHT11 1C0C 0 CODE 0
+__end_of_PowerDownSHT11 1C12 0 CODE 0
 __CFG_DSWDTEN$OFF 0 0 ABS 0
 __size_of_DisableInterrupts 0 0 ABS 0
 __size_of_XBeeReset 0 0 ABS 0
@@ -383,7 +385,6 @@ __end_of_sprintf 15BE 0 CODE 0
 __end_of_CO2OFFSET F03 0 SMALLCONST 0
 __end_of_IrcaMeasure 1924 0 CODE 0
 PayloadPutWord@element 3 0 COMRAM 1
-_EnableDeelSleepInterrupt 0 0 ABS 0
 _PayloadPutByte 1748 0 CODE 0
 __HbssBANK0 0 0 ABS 0
 __LbssBANK0 0 0 ABS 0
@@ -398,7 +399,7 @@ _PayloadPutString 16F6 0 CODE 0
 __CFG_FCMEN$OFF 0 0 ABS 0
 __Hbank12 0 0 ABS 0
 __Lbank12 0 0 ABS 0
-_DisableInterrupts 1C02 0 CODE 0
+_DisableInterrupts 1C08 0 CODE 0
 __size_of_AdcCalibrate 0 0 ABS 0
 XBeeCreateTransmitRequestPacket@i D 0 COMRAM 1
 XBeeCreateTransmitRequestPacket@p E 0 COMRAM 1
@@ -499,7 +500,7 @@ __Ltext44 0 0 ABS 0
 __Ltext25 0 0 ABS 0
 __size_of_XBeeInit 0 0 ABS 0
 __ptext15 18AA 0 CODE 0
-__ptext34 1C0C 0 CODE 0
+__ptext34 1C12 0 CODE 0
 __ptext53 1C02 0 CODE 0
 XBeeCommissioning@command 1F 0 COMRAM 1
 ___inthi_sp 0 0 STACK 2
@@ -517,7 +518,7 @@ __Ltext45 0 0 ABS 0
 __Ltext26 0 0 ABS 0
 __ptext16 1542 0 CODE 0
 __ptext35 1B9A 0 CODE 0
-__ptext54 1A7E 0 CODE 0
+__ptext54 1C08 0 CODE 0
 __Htext55 0 0 ABS 0
 __Htext36 0 0 ABS 0
 __Htext17 0 0 ABS 0
@@ -532,9 +533,11 @@ __Ltext46 0 0 ABS 0
 __Ltext27 0 0 ABS 0
 __ptext17 1748 0 CODE 0
 __ptext36 1BE6 0 CODE 0
-__ptext55 1A98 0 CODE 0
+__ptext55 1A7E 0 CODE 0
+__Htext56 0 0 ABS 0
 __Htext37 0 0 ABS 0
 __Htext18 0 0 ABS 0
+__Ltext56 0 0 ABS 0
 __Ltext37 0 0 ABS 0
 __Ltext18 0 0 ABS 0
 __ptext27 1BF6 0 CODE 0
@@ -547,11 +550,12 @@ __Ltext28 0 0 ABS 0
 __size_of_XBeeCreatePacket 0 0 ABS 0
 __ptext18 195A 0 CODE 0
 __ptext37 1BA6 0 CODE 0
+__ptext56 1A98 0 CODE 0
 __Htext38 0 0 ABS 0
 __Htext19 0 0 ABS 0
 __Ltext38 0 0 ABS 0
 __Ltext19 0 0 ABS 0
-__ptext28 1C08 0 CODE 0
+__ptext28 1C0E 0 CODE 0
 __ptext47 1B80 0 CODE 0
 __CFG_WDTEN$OFF 0 0 ABS 0
 __Htext48 0 0 ABS 0
@@ -560,13 +564,14 @@ __Ltext48 0 0 ABS 0
 __Ltext29 0 0 ABS 0
 __ptext19 1A1C 0 CODE 0
 __ptext38 1B62 0 CODE 0
-_PowerDownSHT11 1C08 0 CODE 0
+_PowerDownSHT11 1C0E 0 CODE 0
 ___intlo_sp 0 0 STACK 2
 __Htext39 0 0 ABS 0
 __Ltext39 0 0 ABS 0
 _DSCONHbits F4D 0 ABS 0
 __ptext29 18EC 0 CODE 0
 __ptext48 13B8 0 CODE 0
+_EnableDeepSleepInterrupt 1C02 0 CODE 0
 _Sht11Start 1924 0 CODE 0
 __Htext49 0 0 ABS 0
 __Ltext49 0 0 ABS 0
@@ -671,48 +676,49 @@ __size_of_PayloadInit 0 0 ABS 0
 %segments
 reset_vec 0 3 CODE 0 0
 smallconst F00 F0F SMALLCONST F00 0
+config FFF8 FFFF CONFIG FFF8 0
 cstackCOMRAM 1 27 COMRAM 1 1
 bssBANK0 60 DC BANK0 60 1
 cstackBANK1 100 1E1 BANK1 100 1
-text11 F10 1C0F CODE F10 0
+text11 F10 1C15 CODE F10 0
 %locals
 dist/default/production\umote-irca-astable.production.obj
 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f26j50.h
-C:\Users\Diego\AppData\Local\Temp\s27k.
-10563 1868 0 CODE 0
-10565 1868 0 CODE 0
-10568 1868 0 CODE 0
-10612 1868 0 CODE 0
-10613 186C 0 CODE 0
+C:\Users\Diego\AppData\Local\Temp\s5gg.
+10562 1868 0 CODE 0
+10564 1868 0 CODE 0
+10567 1868 0 CODE 0
+10611 1868 0 CODE 0
+10612 186C 0 CODE 0
+10613 186E 0 CODE 0
 10614 186E 0 CODE 0
-10615 186E 0 CODE 0
-10616 1870 0 CODE 0
-10617 1872 0 CODE 0
-10620 1874 0 CODE 0
-10621 1878 0 CODE 0
+10615 1870 0 CODE 0
+10616 1872 0 CODE 0
+10619 1874 0 CODE 0
+10620 1878 0 CODE 0
+10621 187A 0 CODE 0
 10622 187A 0 CODE 0
-10623 187A 0 CODE 0
-10624 187C 0 CODE 0
-10625 187E 0 CODE 0
-10630 1880 0 CODE 0
-10631 1882 0 CODE 0
-10632 1884 0 CODE 0
-10633 1886 0 CODE 0
-10634 1888 0 CODE 0
-10635 188A 0 CODE 0
-10636 188C 0 CODE 0
-10637 1890 0 CODE 0
+10623 187C 0 CODE 0
+10624 187E 0 CODE 0
+10629 1880 0 CODE 0
+10630 1882 0 CODE 0
+10631 1884 0 CODE 0
+10632 1886 0 CODE 0
+10633 1888 0 CODE 0
+10634 188A 0 CODE 0
+10635 188C 0 CODE 0
+10636 1890 0 CODE 0
+10637 1894 0 CODE 0
 10638 1894 0 CODE 0
-10639 1894 0 CODE 0
-10640 1896 0 CODE 0
-10641 189A 0 CODE 0
-10642 189C 0 CODE 0
-10643 189E 0 CODE 0
-10649 18A0 0 CODE 0
-10651 18A0 0 CODE 0
-10652 18A2 0 CODE 0
-10653 18A4 0 CODE 0
-10654 18A6 0 CODE 0
+10639 1896 0 CODE 0
+10640 189A 0 CODE 0
+10641 189C 0 CODE 0
+10642 189E 0 CODE 0
+10648 18A0 0 CODE 0
+10650 18A0 0 CODE 0
+10651 18A2 0 CODE 0
+10652 18A4 0 CODE 0
+10653 18A6 0 CODE 0
 main.c
 10 1332 0 CODE 0
 16 1332 0 CODE 0
@@ -1028,9 +1034,9 @@ sensor_proxy.c
 34 1BF8 0 CODE 0
 35 1BFA 0 CODE 0
 sensor_proxy.c
-46 1C08 0 CODE 0
-47 1C08 0 CODE 0
-48 1C0A 0 CODE 0
+46 1C0E 0 CODE 0
+47 1C0E 0 CODE 0
+48 1C10 0 CODE 0
 irca/irca.c
 14 18EC 0 CODE 0
 15 18EC 0 CODE 0
@@ -1071,9 +1077,9 @@ adc/averaged_adc.c
 52 1B7C 0 CODE 0
 53 1B7E 0 CODE 0
 network_proxy.c
-20 1C0C 0 CODE 0
-21 1C0C 0 CODE 0
-22 1C0E 0 CODE 0
+20 1C12 0 CODE 0
+21 1C12 0 CODE 0
+22 1C14 0 CODE 0
 opController.c
 63 1B9A 0 CODE 0
 64 1B9A 0 CODE 0
@@ -1210,9 +1216,14 @@ C:\Program Files (x86)\Microchip\xc8\v1.34\sources\pic18\d100tcyx.c
 12 1B4A 0 CODE 0
 13 1B50 0 CODE 0
 interrupts.c
-42 1C02 0 CODE 0
-43 1C02 0 CODE 0
-44 1C06 0 CODE 0
+37 1C02 0 CODE 0
+38 1C02 0 CODE 0
+39 1C04 0 CODE 0
+40 1C06 0 CODE 0
+interrupts.c
+42 1C08 0 CODE 0
+43 1C08 0 CODE 0
+44 1C0C 0 CODE 0
 interrupts.c
 25 1A7E 0 CODE 0
 27 1A7E 0 CODE 0

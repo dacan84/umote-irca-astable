@@ -9943,7 +9943,7 @@ static void PowerUpSHT11(void);
 static void PowerDownSHT11(void);
 
 ShtData shtData;
-IrcAData ircaData;
+IrcAData ircAData;
 
 void SensorProxyInit(void) {
 Sht11Init();
@@ -9957,7 +9957,7 @@ Sht11Measure(&shtData);
 PowerDownSHT11();
 
 PowerUpCO2Sensor();
-IrcaMeasure(&ircaData);
+IrcaMeasure(&ircAData);
 
 }
 

@@ -19,7 +19,7 @@
 #define IRCA1_HOLD_DDR         TRISCbits.TRISC0    /* Sample & Hold reset */
 #define IRCA1_HOLD             LATCbits.LATC0      /* Sample & Hold reset */
 
-//#define _XTAL_FREQ 80000000
+#define _XTAL_FREQ 80000000
 
 /*...........................................................................*/
 /* Class IrcA1Data sensor data */

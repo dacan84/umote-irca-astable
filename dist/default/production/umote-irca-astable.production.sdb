@@ -111,6 +111,8 @@ TRUE 1
 [v _Co2D1InitIO Co2D1InitIO `(v  1 s 0 Co2D1InitIO ]
 "25 C:\Users\Diego\Documents\GitHub\umote-irca-astable\interrupts.c
 [v _ClearInterrupts ClearInterrupts `(v  1 e 0 0 ]
+"37
+[v _EnableDeepSleepInterrupt EnableDeepSleepInterrupt `(v  1 e 0 0 ]
 "42
 [v _DisableInterrupts DisableInterrupts `(v  1 e 0 0 ]
 "9 C:\Users\Diego\Documents\GitHub\umote-irca-astable\irca/irca.c
@@ -201,7 +203,7 @@ TRUE 1
 [v _PayloadPutWord PayloadPutWord `(v  1 e 0 0 ]
 "69
 [v _PayloadPutString PayloadPutString `(v  1 e 0 0 ]
-[s S3701 . 1 `uc 1 RTCPTR0 1 0 :1:0 
+[s S3698 . 1 `uc 1 RTCPTR0 1 0 :1:0 
 `uc 1 RTCPTR1 1 0 :1:1 
 `uc 1 RTCOE 1 0 :1:2 
 `uc 1 HALFSEC 1 0 :1:3 
@@ -211,8 +213,8 @@ TRUE 1
 `uc 1 RTCEN 1 0 :1:7 
 ]
 "2420 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f26j50.h
-[u S3710 . 1 `S3701 1 . 1 0 ]
-[v _RTCCFGbits RTCCFGbits `VES3710  1 e 1 @3903 ]
+[u S3707 . 1 `S3698 1 . 1 0 ]
+[v _RTCCFGbits RTCCFGbits `VES3707  1 e 1 @3903 ]
 "2534
 [v _ANCON0 ANCON0 `VEuc  1 e 1 @3912 ]
 [s S600 . 1 `uc 1 PCFG0 1 0 :1:0 
@@ -265,22 +267,22 @@ TRUE 1
 "2712
 [u S2826 . 1 `S2824 1 . 1 0 ]
 [v _DSWAKEHbits DSWAKEHbits `VES2826  1 e 1 @3915 ]
-[s S3582 . 1 `uc 1 RELEASE 1 0 :1:0 
+[s S3579 . 1 `uc 1 RELEASE 1 0 :1:0 
 `uc 1 DSBOR 1 0 :1:1 
 `uc 1 ULPWDIS 1 0 :1:2 
 ]
 "2733
-[u S3586 . 1 `S3582 1 . 1 0 ]
-[v _DSCONLbits DSCONLbits `VES3586  1 e 1 @3916 ]
-[s S3669 . 1 `uc 1 RTCWDIS 1 0 :1:0 
+[u S3583 . 1 `S3579 1 . 1 0 ]
+[v _DSCONLbits DSCONLbits `VES3583  1 e 1 @3916 ]
+[s S3666 . 1 `uc 1 RTCWDIS 1 0 :1:0 
 `uc 1 DSULPEN 1 0 :1:1 
 `uc 1 . 1 0 :5:2 
 `uc 1 DSEN 1 0 :1:7 
 ]
 "2765
-[u S3674 . 1 `S3669 1 . 1 0 ]
-[v _DSCONHbits DSCONHbits `VES3674  1 e 1 @3917 ]
-[s S3682 . 1 `uc 1 . 1 0 :1:0 
+[u S3671 . 1 `S3666 1 . 1 0 ]
+[v _DSCONHbits DSCONHbits `VES3671  1 e 1 @3917 ]
+[s S3679 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 SUSPND 1 0 :1:1 
 `uc 1 RESUME 1 0 :1:2 
 `uc 1 USBEN 1 0 :1:3 
@@ -289,8 +291,8 @@ TRUE 1
 `uc 1 PPBRST 1 0 :1:6 
 ]
 "3234
-[u S3690 . 1 `S3682 1 . 1 0 ]
-[v _UCONbits UCONbits `VES3690  1 e 1 @3941 ]
+[u S3687 . 1 `S3679 1 . 1 0 ]
+[v _UCONbits UCONbits `VES3687  1 e 1 @3941 ]
 [s S1740 . 1 `uc 1 ABDEN 1 0 :1:0 
 `uc 1 WUE 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
@@ -916,15 +918,13 @@ TRUE 1
 [v _BROADCAST_RADIUS BROADCAST_RADIUS `Cuc  1 e 1 0 ]
 "11
 [v _TRANSMIT_OPTIONS TRANSMIT_OPTIONS `Cuc  1 e 1 0 ]
-[s S361 . 6 `ui 1 out 2 0 `ui 1 tmp 2 2 `ui 1 ref 2 4 ]
-"14
-[v _ircAData ircAData `S361  1 e 6 0 ]
 [u S711 . 2 `ui 1 i 2 0 ]
 "13 C:\Users\Diego\Documents\GitHub\umote-irca-astable\sensor_proxy.c
 [s S715 . 6 `S711 1 temperature 2 0 `S711 1 humidity 2 2 `uc 1 tempChk 1 4 `uc 1 humiChk 1 5 ]
 [v _shtData shtData `S715  1 e 6 0 ]
+[s S361 . 6 `ui 1 out 2 0 `ui 1 tmp 2 2 `ui 1 ref 2 4 ]
 "14
-[v _ircaData ircaData `S361  1 e 6 0 ]
+[v _ircAData ircAData `S361  1 e 6 0 ]
 "21 C:\Users\Diego\Documents\GitHub\umote-irca-astable\xbee/digi_hw.c
 [v _EUSART_9600 EUSART_9600 `uc  1 s 1 EUSART_9600 ]
 [s S921 AtCommand 100 `uc 1 frameId 1 0 `[2]uc 1 command 2 1 `[97]uc 1 value 97 3 ]
@@ -1433,7 +1433,12 @@ TRUE 1
 [v Delay100TCYx@unit unit `uc  1 a 1 0 ]
 "13
 } 0
-"42 C:\Users\Diego\Documents\GitHub\umote-irca-astable\interrupts.c
+"37 C:\Users\Diego\Documents\GitHub\umote-irca-astable\interrupts.c
+[v _EnableDeepSleepInterrupt EnableDeepSleepInterrupt `(v  1 e 0 0 ]
+{
+"40
+} 0
+"42
 [v _DisableInterrupts DisableInterrupts `(v  1 e 0 0 ]
 {
 "44

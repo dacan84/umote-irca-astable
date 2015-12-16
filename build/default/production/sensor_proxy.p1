@@ -7723,8 +7723,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _shtData `S1034 ~T0 @X0 1 e ]
 [; ;sensor_proxy.c: 13: ShtData shtData;
 "14
-[v _ircaData `S1038 ~T0 @X0 1 e ]
-[; ;sensor_proxy.c: 14: IrcAData ircaData;
+[v _ircAData `S1038 ~T0 @X0 1 e ]
+[; ;sensor_proxy.c: 14: IrcAData ircAData;
 "16
 [v _SensorProxyInit `(v ~T0 @X0 1 ef ]
 {
@@ -7759,9 +7759,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;sensor_proxy.c: 27: PowerUpCO2Sensor();
 "27
 [e ( _PowerUpCO2Sensor ..  ]
-[; ;sensor_proxy.c: 28: IrcaMeasure(&ircaData);
+[; ;sensor_proxy.c: 28: IrcaMeasure(&ircAData);
 "28
-[e ( _IrcaMeasure (1 &U _ircaData ]
+[e ( _IrcaMeasure (1 &U _ircAData ]
 [; ;sensor_proxy.c: 30: }
 "30
 [e :UE 1040 ]

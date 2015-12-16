@@ -10220,7 +10220,7 @@ void ToggleLampPulse(void);
 void EnableInterrupts(void);
 void ClearInterrupts(void);
 void DisableInterrupts(void);
-void EnableDeelSleepInterrupt(void);
+void EnableDeepSleepInterrupt(void);
 
 # 12 "opController.c"
 void OnPowerUp(void) {

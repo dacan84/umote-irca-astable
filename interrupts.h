@@ -4,7 +4,7 @@
 void EnableInterrupts(void);
 void ClearInterrupts(void);
 void DisableInterrupts(void);
-void EnableDeelSleepInterrupt(void);
+void EnableDeepSleepInterrupt(void);
 
 #endif	/* INTERRUPTS_H */
 

@@ -16,7 +16,7 @@ int main() {
     BspInit();
     ClearInterrupts();
     DisableInterrupts();
-    EnableDeelSleepInterrupt();
+    EnableDeepSleepInterrupt();
    
     XBeeInit();
     // XBeeJoin(); //ESTE AHI QUE SACARLO DEL xbee INIT PARA TRABAJAR EN DEEP SLEEP pongo el Join solo con el associate a ver si asi no consume tanto

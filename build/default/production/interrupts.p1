@@ -7630,7 +7630,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;interrupts.h: 4: void EnableInterrupts(void);
 [; ;interrupts.h: 5: void ClearInterrupts(void);
 [; ;interrupts.h: 6: void DisableInterrupts(void);
-[; ;interrupts.h: 7: void EnableDeelSleepInterrupt(void);
+[; ;interrupts.h: 7: void EnableDeepSleepInterrupt(void);
 [; ;sensor_proxy.h: 6: void SensorProxyInit(void);
 [; ;sensor_proxy.h: 8: void MeasureSensors(void);
 [; ;sensor_proxy.h: 10: void EnableCO2Sensor(void);

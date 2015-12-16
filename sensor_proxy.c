@@ -11,7 +11,7 @@ static void PowerUpSHT11(void);
 static void PowerDownSHT11(void);
 
 ShtData shtData;
-IrcAData ircaData;
+IrcAData ircAData;
 
 void SensorProxyInit(void) {
     Sht11Init();
@@ -25,7 +25,7 @@ void MeasureSensors(void) {
     PowerDownSHT11();
     // IRCA1 sequence
     PowerUpCO2Sensor(); //TODO; esto igual sobra
-    IrcaMeasure(&ircaData);
+    IrcaMeasure(&ircAData);
     //PowerDownCO2Sensor();
 }
 

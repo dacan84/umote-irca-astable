@@ -7,7 +7,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "6
 [v _DisableInterrupts `(v ~T0 @X0 0 ef ]
 "7
-[v _EnableDeelSleepInterrupt `(v ~T0 @X0 0 ef ]
+[v _EnableDeepSleepInterrupt `(v ~T0 @X0 0 ef ]
 "263 xbee/include\xbee/../digi_api.h
 [v _XBeeInit `(v ~T0 @X0 0 ef ]
 "6 sensor_proxy.h
@@ -7631,7 +7631,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;interrupts.h: 4: void EnableInterrupts(void);
 [; ;interrupts.h: 5: void ClearInterrupts(void);
 [; ;interrupts.h: 6: void DisableInterrupts(void);
-[; ;interrupts.h: 7: void EnableDeelSleepInterrupt(void);
+[; ;interrupts.h: 7: void EnableDeepSleepInterrupt(void);
 [; ;sensor_proxy.h: 6: void SensorProxyInit(void);
 [; ;sensor_proxy.h: 8: void MeasureSensors(void);
 [; ;sensor_proxy.h: 10: void EnableCO2Sensor(void);
@@ -7841,9 +7841,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 18: DisableInterrupts();
 "18
 [e ( _DisableInterrupts ..  ]
-[; ;main.c: 19: EnableDeelSleepInterrupt();
+[; ;main.c: 19: EnableDeepSleepInterrupt();
 "19
-[e ( _EnableDeelSleepInterrupt ..  ]
+[e ( _EnableDeepSleepInterrupt ..  ]
 [; ;main.c: 21: XBeeInit();
 "21
 [e ( _XBeeInit ..  ]

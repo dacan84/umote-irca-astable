@@ -9873,7 +9873,7 @@ void DeepSleep(void);
 void EnableInterrupts(void);
 void ClearInterrupts(void);
 void DisableInterrupts(void);
-void EnableDeelSleepInterrupt(void);
+void EnableDeepSleepInterrupt(void);
 
 # 6 "sensor_proxy.h"
 void SensorProxyInit(void);
@@ -10210,7 +10210,7 @@ int main() {
 BspInit();
 ClearInterrupts();
 DisableInterrupts();
-EnableDeelSleepInterrupt();
+EnableDeepSleepInterrupt();
 
 XBeeInit();
 
