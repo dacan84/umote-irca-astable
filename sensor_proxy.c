@@ -19,6 +19,7 @@ void SensorProxyInit(void) {
 }
 
 void MeasureSensors(void) {
+    SampleAndHoldIrcaReset();
     // SHT11 sequence
     PowerUpSHT11();
     Sht11Measure(&shtData);

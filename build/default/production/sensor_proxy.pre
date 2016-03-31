@@ -9935,6 +9935,7 @@ void IrcaMeasure(IrcAData* data);
 void IrcaDisableLamp(void);
 
 void IrcaEnableLamp(void);
+void SampleAndHoldIrcaReset(void);
 
 # 8 "sensor_proxy.c"
 static void PowerUpCO2Sensor(void);
@@ -9951,6 +9952,7 @@ IrcaInit();
 }
 
 void MeasureSensors(void) {
+SampleAndHoldIrcaReset();
 
 PowerUpSHT11();
 Sht11Measure(&shtData);

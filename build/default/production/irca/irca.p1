@@ -6,8 +6,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 "27 irca/include\irca.h
 [s S1034 `ui 1 `ui 1 `ui 1 ]
 [n S1034 . out tmp ref ]
-"6 irca/irca.c
-[v _SampleAndHoldReset `(v ~T0 @X0 0 sf ]
 "8 irca/../adc/include/averaged_adc.h
 [v _AdcConvert `(v ~T0 @X0 0 ef2`uc`*ui ]
 "2583 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f26j50.h
@@ -75,7 +73,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S455 . . . . . . . . . . ]
 "6533
 [v _LATCbits `VS455 ~T0 @X0 0 e@3979 ]
-"13132
+[v F8145 `(v ~T0 @X0 1 tf1`ul ]
+"161 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18.h
+[v __delay `JF8145 ~T0 @X0 0 e ]
+[p i __delay ]
+"13132 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f26j50.h
 [s S844 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :2 `uc 1 ]
 [n S844 . TMR1ON RD16 T1SYNC T1OSCEN T1CKPS TMR1CS ]
 "13140
@@ -7669,10 +7671,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;include\irca.h: 35: void IrcaMeasure(IrcAData* data);
 [; ;include\irca.h: 37: void IrcaDisableLamp(void);
 [; ;include\irca.h: 39: void IrcaEnableLamp(void);
+[; ;include\irca.h: 40: void SampleAndHoldIrcaReset(void);
 [; ;averaged_adc.h: 6: void AdcInit(void);
 [; ;averaged_adc.h: 8: void AdcConvert(uint8_t channel, uint16_t* co2);
 [; ;irca.c: 5: static void Irca1InitIO(void);
-[; ;irca.c: 6: static void SampleAndHoldReset(void);
 "9 irca/irca.c
 [v _IrcaInit `(v ~T0 @X0 1 ef ]
 {
@@ -7696,9 +7698,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _IrcaMeasure ]
 [v _data `*S1034 ~T0 @X0 1 r1 ]
 [f ]
-[; ;irca.c: 15: SampleAndHoldReset();
-"15
-[e ( _SampleAndHoldReset ..  ]
 [; ;irca.c: 16: AdcConvert(10, &data->out);
 "16
 [e ( _AdcConvert (2 , -> -> 10 `i `uc &U . *U _data 0 ]
@@ -7747,44 +7746,50 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 1037 ]
 }
 "32
-[v _SampleAndHoldReset `(v ~T0 @X0 1 sf ]
+[v _SampleAndHoldIrcaReset `(v ~T0 @X0 1 ef ]
 {
-[; ;irca.c: 32: static void SampleAndHoldReset(void) {
-[e :U _SampleAndHoldReset ]
+[; ;irca.c: 32: void SampleAndHoldIrcaReset(void) {
+[e :U _SampleAndHoldIrcaReset ]
 [f ]
 [; ;irca.c: 33: LATCbits.LATC0 = 1;
 "33
 [e = . . _LATCbits 0 0 -> -> 1 `i `uc ]
+[; ;irca.c: 36: _delay((unsigned long)((2)*(80000000/4000000.0)));
+"36
+[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 80000000 `l `d .4000000.0 `ul ]
 [; ;irca.c: 37: LATCbits.LATC0 = 0;
 "37
 [e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
-[; ;irca.c: 38: }
+[; ;irca.c: 38: _delay((unsigned long)((2)*(80000000/4000000.0)));
 "38
+[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 80000000 `l `d .4000000.0 `ul ]
+[; ;irca.c: 39: }
+"39
 [e :UE 1038 ]
 }
-"42
+"45
 [v _IrcaEnableLamp `(v ~T0 @X0 1 ef ]
 {
-[; ;irca.c: 42: void IrcaEnableLamp(void) {
+[; ;irca.c: 45: void IrcaEnableLamp(void) {
 [e :U _IrcaEnableLamp ]
 [f ]
-[; ;irca.c: 43: T1CONbits.TMR1ON = 1;
-"43
+[; ;irca.c: 46: T1CONbits.TMR1ON = 1;
+"46
 [e = . . _T1CONbits 0 0 -> -> 1 `i `uc ]
-[; ;irca.c: 44: }
-"44
+[; ;irca.c: 47: }
+"47
 [e :UE 1039 ]
 }
-"46
+"49
 [v _IrcaDisableLamp `(v ~T0 @X0 1 ef ]
 {
-[; ;irca.c: 46: void IrcaDisableLamp(void) {
+[; ;irca.c: 49: void IrcaDisableLamp(void) {
 [e :U _IrcaDisableLamp ]
 [f ]
-[; ;irca.c: 47: T1CONbits.TMR1ON = 0;
-"47
+[; ;irca.c: 50: T1CONbits.TMR1ON = 0;
+"50
 [e = . . _T1CONbits 0 0 -> -> 0 `i `uc ]
-[; ;irca.c: 48: }
-"48
+[; ;irca.c: 51: }
+"51
 [e :UE 1040 ]
 }

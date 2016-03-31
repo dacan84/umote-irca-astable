@@ -7852,6 +7852,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;irca.h: 35: void IrcaMeasure(IrcAData* data);
 [; ;irca.h: 37: void IrcaDisableLamp(void);
 [; ;irca.h: 39: void IrcaEnableLamp(void);
+[; ;irca.h: 40: void SampleAndHoldIrcaReset(void);
 "7 network_proxy.c
 [v _COORDINATOR_ADDRESS `Cuc ~T0 @X0 -> 8 `i e ]
 [i _COORDINATOR_ADDRESS

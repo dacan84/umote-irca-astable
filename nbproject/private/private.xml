@@ -5,15 +5,6 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Diego/Documents/GitHub/umote-irca-astable/main.c</file>
-            <file>file:/C:/Users/Diego/Documents/GitHub/umote-irca-astable/adc/averaged_adc.c</file>
-            <file>file:/C:/Users/Diego/Documents/GitHub/umote-irca-astable/co2-d1/co2-d1.c</file>
-            <file>file:/C:/Users/Diego/Documents/GitHub/umote-irca-astable/sensor_proxy.c</file>
-            <file>file:/C:/Users/Diego/Documents/GitHub/umote-irca-astable/network_proxy.h</file>
-            <file>file:/C:/Users/Diego/Documents/GitHub/umote-irca-astable/irca/irca.c</file>
-            <file>file:/C:/Users/Diego/Documents/GitHub/umote-irca-astable/co2-d1/include/co2-d1.h</file>
-            <file>file:/C:/Users/Diego/Documents/GitHub/umote-irca-astable/irca/include/irca.h</file>
-            <file>file:/C:/Users/Diego/Documents/GitHub/umote-irca-astable/network_proxy.c</file>
-            <file>file:/C:/Users/Diego/Documents/GitHub/umote-irca-astable/interrupts.h</file>
         </group>
     </open-files>
 </project-private>

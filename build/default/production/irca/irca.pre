@@ -9883,6 +9883,7 @@ void IrcaMeasure(IrcAData* data);
 void IrcaDisableLamp(void);
 
 void IrcaEnableLamp(void);
+void SampleAndHoldIrcaReset(void);
 
 # 6 "irca/../adc/include/averaged_adc.h"
 void AdcInit(void);
@@ -9891,7 +9892,7 @@ void AdcConvert(uint8_t channel, uint16_t* co2);
 
 # 5 "irca/irca.c"
 static void Irca1InitIO(void);
-static void SampleAndHoldReset(void);
+
 
 
 void IrcaInit(void) {
@@ -9900,7 +9901,7 @@ Irca1InitIO();
 }
 
 void IrcaMeasure(IrcAData* data) {
-SampleAndHoldReset();
+
 AdcConvert(10, &data->out);
 AdcConvert(11, &data->ref);
 AdcConvert(9, &data->tmp);
@@ -9917,16 +9918,16 @@ TRISCbits.TRISC0 = 0;
 LATCbits.LATC0 = 0;
 }
 
-static void SampleAndHoldReset(void) {
+void SampleAndHoldIrcaReset(void) {
 LATCbits.LATC0 = 1;
 
 
-
+_delay((unsigned long)((2)*(80000000/4000000.0)));
 LATCbits.LATC0 = 0;
+_delay((unsigned long)((2)*(80000000/4000000.0)));
 }
 
-
-
+# 45
 void IrcaEnableLamp(void) {
 T1CONbits.TMR1ON = 1;
 }

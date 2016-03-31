@@ -15,6 +15,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _Sht11Init `(v ~T0 @X0 0 ef ]
 "33 irca/include/irca.h
 [v _IrcaInit `(v ~T0 @X0 0 ef ]
+"40
+[v _SampleAndHoldIrcaReset `(v ~T0 @X0 0 ef ]
 "10 sensor_proxy.c
 [v _PowerUpSHT11 `(v ~T0 @X0 0 sf ]
 "52 sht/include/sht.h
@@ -7715,6 +7717,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;irca.h: 35: void IrcaMeasure(IrcAData* data);
 [; ;irca.h: 37: void IrcaDisableLamp(void);
 [; ;irca.h: 39: void IrcaEnableLamp(void);
+[; ;irca.h: 40: void SampleAndHoldIrcaReset(void);
 [; ;sensor_proxy.c: 8: static void PowerUpCO2Sensor(void);
 [; ;sensor_proxy.c: 9: static void PowerDownCO2Sensor(void);
 [; ;sensor_proxy.c: 10: static void PowerUpSHT11(void);
@@ -7747,80 +7750,83 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;sensor_proxy.c: 21: void MeasureSensors(void) {
 [e :U _MeasureSensors ]
 [f ]
-[; ;sensor_proxy.c: 23: PowerUpSHT11();
-"23
-[e ( _PowerUpSHT11 ..  ]
-[; ;sensor_proxy.c: 24: Sht11Measure(&shtData);
+[; ;sensor_proxy.c: 22: SampleAndHoldIrcaReset();
+"22
+[e ( _SampleAndHoldIrcaReset ..  ]
+[; ;sensor_proxy.c: 24: PowerUpSHT11();
 "24
-[e ( _Sht11Measure (1 &U _shtData ]
-[; ;sensor_proxy.c: 25: PowerDownSHT11();
+[e ( _PowerUpSHT11 ..  ]
+[; ;sensor_proxy.c: 25: Sht11Measure(&shtData);
 "25
+[e ( _Sht11Measure (1 &U _shtData ]
+[; ;sensor_proxy.c: 26: PowerDownSHT11();
+"26
 [e ( _PowerDownSHT11 ..  ]
-[; ;sensor_proxy.c: 27: PowerUpCO2Sensor();
-"27
-[e ( _PowerUpCO2Sensor ..  ]
-[; ;sensor_proxy.c: 28: IrcaMeasure(&ircAData);
+[; ;sensor_proxy.c: 28: PowerUpCO2Sensor();
 "28
+[e ( _PowerUpCO2Sensor ..  ]
+[; ;sensor_proxy.c: 29: IrcaMeasure(&ircAData);
+"29
 [e ( _IrcaMeasure (1 &U _ircAData ]
-[; ;sensor_proxy.c: 30: }
-"30
+[; ;sensor_proxy.c: 31: }
+"31
 [e :UE 1040 ]
 }
-"32
+"33
 [v _PowerUpCO2Sensor `(v ~T0 @X0 1 sf ]
 {
-[; ;sensor_proxy.c: 32: static void PowerUpCO2Sensor(void) {
+[; ;sensor_proxy.c: 33: static void PowerUpCO2Sensor(void) {
 [e :U _PowerUpCO2Sensor ]
 [f ]
-[; ;sensor_proxy.c: 33: TRISBbits.TRISB2 = 0;
-"33
-[e = . . _TRISBbits 0 2 -> -> 0 `i `uc ]
-[; ;sensor_proxy.c: 34: PORTBbits.RB2 = 1;
+[; ;sensor_proxy.c: 34: TRISBbits.TRISB2 = 0;
 "34
-[e = . . _PORTBbits 0 2 -> -> 1 `i `uc ]
-[; ;sensor_proxy.c: 35: }
+[e = . . _TRISBbits 0 2 -> -> 0 `i `uc ]
+[; ;sensor_proxy.c: 35: PORTBbits.RB2 = 1;
 "35
+[e = . . _PORTBbits 0 2 -> -> 1 `i `uc ]
+[; ;sensor_proxy.c: 36: }
+"36
 [e :UE 1041 ]
 }
-"37
+"38
 [v _PowerDownCO2Sensor `(v ~T0 @X0 1 sf ]
 {
-[; ;sensor_proxy.c: 37: static void PowerDownCO2Sensor(void) {
+[; ;sensor_proxy.c: 38: static void PowerDownCO2Sensor(void) {
 [e :U _PowerDownCO2Sensor ]
 [f ]
-[; ;sensor_proxy.c: 38: PORTBbits.RB2 = 0;
-"38
-[e = . . _PORTBbits 0 2 -> -> 0 `i `uc ]
-[; ;sensor_proxy.c: 39: }
+[; ;sensor_proxy.c: 39: PORTBbits.RB2 = 0;
 "39
+[e = . . _PORTBbits 0 2 -> -> 0 `i `uc ]
+[; ;sensor_proxy.c: 40: }
+"40
 [e :UE 1042 ]
 }
-"41
+"42
 [v _PowerUpSHT11 `(v ~T0 @X0 1 sf ]
 {
-[; ;sensor_proxy.c: 41: static void PowerUpSHT11(void) {
+[; ;sensor_proxy.c: 42: static void PowerUpSHT11(void) {
 [e :U _PowerUpSHT11 ]
 [f ]
-[; ;sensor_proxy.c: 42: TRISAbits.TRISA5 = 0;
-"42
-[e = . . _TRISAbits 0 5 -> -> 0 `i `uc ]
-[; ;sensor_proxy.c: 43: PORTAbits.RA5 = 1;
+[; ;sensor_proxy.c: 43: TRISAbits.TRISA5 = 0;
 "43
-[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
-[; ;sensor_proxy.c: 44: }
+[e = . . _TRISAbits 0 5 -> -> 0 `i `uc ]
+[; ;sensor_proxy.c: 44: PORTAbits.RA5 = 1;
 "44
+[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
+[; ;sensor_proxy.c: 45: }
+"45
 [e :UE 1043 ]
 }
-"46
+"47
 [v _PowerDownSHT11 `(v ~T0 @X0 1 sf ]
 {
-[; ;sensor_proxy.c: 46: static void PowerDownSHT11(void) {
+[; ;sensor_proxy.c: 47: static void PowerDownSHT11(void) {
 [e :U _PowerDownSHT11 ]
 [f ]
-[; ;sensor_proxy.c: 47: PORTAbits.RA5 = 0;
-"47
-[e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
-[; ;sensor_proxy.c: 48: }
+[; ;sensor_proxy.c: 48: PORTAbits.RA5 = 0;
 "48
+[e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
+[; ;sensor_proxy.c: 49: }
+"49
 [e :UE 1044 ]
 }

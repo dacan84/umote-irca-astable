@@ -37,6 +37,7 @@ void IrcaMeasure(IrcAData* data);
 void IrcaDisableLamp(void);
 
 void IrcaEnableLamp(void);
+void SampleAndHoldIrcaReset(void);
 
 #endif	/* IRCA_H */
 
